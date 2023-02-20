@@ -1,16 +1,8 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import React, { useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+// import { ReplaceRoute } from '../contants/constants';
 
 const SplashScreen = () => {
-	const navigation = useNavigation();
-
-	useEffect(() => {
-		setTimeout(() => {
-			navigation.navigate('Signin');
-		}, 1500);
-	}, []);
-
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>Airbnb</Text>

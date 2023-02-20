@@ -1,13 +1,11 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-// import Img from '../../assets/Airbnb Mobile Screenshot/Screenshot_20230218_012320_com.airbnb.android.jpg';
+import { StyleSheet, Text, View } from 'react-native';
 
 const Card = ({ houses }) => {
-	const { id, title, price, desc, _location, imgUrl } = houses.item;
+	const { id, title, price, desc, _location } = houses.item;
 	return (
 		<View style={styles.listingCard} id={id}>
 			<View style={styles.listingImgWrapper}>
-				{/* <Image source={Img} style={styles.listingImg} /> */}
 				<View style={styles.listingImg}></View>
 			</View>
 			<View style={styles.details}>

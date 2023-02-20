@@ -1,28 +1,20 @@
-import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import Categories from '../Components/Categories';
-import Searchbar from '../Components/Searchbar';
-import Listings from '../Components/Listings';
-import BottomTabs from '../Components/BottomTabs';
+import { StyleSheet, View } from 'react-native';
+import { Categories, Listings, Searchbar } from '../Components/components';
 
-const Homescreen = () => {
+const HomeScreen = () => {
 	return (
 		<View style={styles.homescreen}>
-			{/* Search Bar */}
 			<View style={styles.header}>
 				<Searchbar />
-				{/* Categories lists */}
 				<Categories />
 			</View>
-			{/* Main Content Listings */}
 			<Listings />
-			{/* Bottom Tabs*/}
-			<BottomTabs />
 		</View>
 	);
 };
 
-export default Homescreen;
+export default HomeScreen;
 
 const styles = StyleSheet.create({
 	homescreen: {

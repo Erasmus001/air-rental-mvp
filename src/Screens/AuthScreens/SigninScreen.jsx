@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import {
 	StyleSheet,
 	Text,
@@ -5,18 +6,15 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { useAppContext } from '../ContextAPI/ContextAPI';
+import { navigate } from '../../contants/constants';
 
-const SigninScreen = ({ navigation }) => {
+const SigninScreen = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 	const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 	const [isPhoneLoading, setIsPhoneLoading] = useState(false);
 	const [noValue, setNoValue] = useState(true);
-
-	const { createUserWithEmailAndPassword } = useAppContext();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -28,8 +26,7 @@ const SigninScreen = ({ navigation }) => {
 
 		setIsLoading(true);
 		setTimeout(() => {
-			createUserWithEmailAndPassword(email, password);
-			navigation.navigate('Home');
+			navigate('Home');
 			setIsLoading(false);
 			setEmail('');
 			setPassword('');
@@ -54,7 +51,7 @@ const SigninScreen = ({ navigation }) => {
 		}, 4000);
 	};
 
-	const handleExitSignin = () => navigation.navigate('Home');
+	const handleExitSignin = () => navigate('Home');
 
 	useEffect(() => {
 		if (!password || !email) {

@@ -7,7 +7,10 @@ const Categories = () => {
 
 	return (
 		<View style={styles.categories}>
-			<ScrollView contentContainerStyle={styles.scroll}>
+			<ScrollView
+				contentContainerStyle={styles.scroll}
+				horizontal
+				showsHorizontalScrollIndicator={false}>
 				{categoriesData.map((category) => (
 					<View style={styles.category} key={category.id}>
 						<Text style={styles.category_title}>{category.category_title}</Text>
@@ -33,7 +36,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		gap: 5,
 		flexDirection: 'row',
-		overflow: 'scroll',
 		paddingHorizontal: 10,
 	},
 	category: {

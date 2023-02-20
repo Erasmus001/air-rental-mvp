@@ -19,17 +19,27 @@ export const categories = [
 		category_title: 'Hostels',
 		type: 'hostels',
 	},
+	{
+		id: 5,
+		category_title: 'Guest House',
+		type: 'guest_house',
+	},
+	{
+		id: 6,
+		category_title: 'Villas',
+		type: 'guest_house',
+	},
 ];
 
 export const housesApi = () => {
-	const count = 100;
+	const count = 10;
 
 	const houses = Array.from({ length: count }, (_, i) => {
 		return {
 			index: i + 1,
 			id: i + 1,
 			title: `House ${i + 1}`,
-			price: `Ghc ${400 * i === 0 ? 400 : 400 * i}`,
+			price: `Ghc ${400 * i === 0 ? 4000 : 400 * i}`,
 			_location: `Adenta, Road ${i + 1}`,
 			desc: `A new building with id ${i + 1}`,
 			imgUrl: require('../../assets/Airbnb Mobile Screenshot/Screenshot_20230218_012320_com.airbnb.android.jpg'),
