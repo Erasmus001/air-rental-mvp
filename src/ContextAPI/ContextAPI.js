@@ -2,7 +2,7 @@ import React, { useState, createContext, useContext } from 'react';
 
 const AppContext = createContext({
 	user: 'Erasmus',
-	createUserWithUsernameAndPassword: () => Promise,
+	createUserWithEmailAndPassword: () => Promise,
 });
 
 export const useAppContext = () => useContext(AppContext);
@@ -13,16 +13,16 @@ const AppContextProvider = ({ children }) => {
 	const userDB = [];
 
 	// Create user account
-	const createUserWithUsernameAndPassword = (username, password) => {
+	const createUserWithEmailAndPassword = (email, password) => {
 		const newUserDB = [...userDB];
 
-		newUserDB.push(...newUserDB, { username, password });
+		newUserDB.push(...newUserDB, { email, password });
 		console.log(newUserDB);
 	};
 
 	const globalValues = {
 		user,
-		createUserWithUsernameAndPassword,
+		createUserWithEmailAndPassword,
 	};
 	return (
 		<AppContext.Provider value={globalValues}>{children}</AppContext.Provider>

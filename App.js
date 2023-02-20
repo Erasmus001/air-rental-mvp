@@ -3,9 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 // Components
-import SigninScreen from './src/Screens/SigninScreen/SigninScreen';
-import HomeScreen from './src/Screens/Homescreen/Homescreen';
-import SplashScreen from './src/Components/SplashScreen/SplashScreen';
+import SigninScreen from './src/Screens/SigninScreen';
+import HomeScreen from './src/Screens/Homescreen';
+import SplashScreen from './src/Components/SplashScreen';
 import AppContextProvider from './src/ContextAPI/ContextAPI';
 
 const Stack = createStackNavigator();

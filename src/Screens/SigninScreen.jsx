@@ -6,35 +6,32 @@ import {
 	View,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { useAppContext } from '../../ContextAPI/ContextAPI';
+import { useAppContext } from '../ContextAPI/ContextAPI';
 
 const SigninScreen = ({ navigation }) => {
-	const [username, setUsername] = useState('');
+	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 	const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 	const [isPhoneLoading, setIsPhoneLoading] = useState(false);
 	const [noValue, setNoValue] = useState(true);
 
-	const { createUserWithUsernameAndPassword } = useAppContext();
-
-	const handleChange = (event) => {
-		setUsername(event.target.value);
-	};
-
-	const handlePasswordChange = (event) => {
-		setPassword(event.target.value);
-	};
+	const { createUserWithEmailAndPassword } = useAppContext();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
+		if (!email || !password) {
+			alert('Please fill all required fields');
+			return;
+		}
+
 		setIsLoading(true);
 		setTimeout(() => {
-			createUserWithUsernameAndPassword(username, password);
+			createUserWithEmailAndPassword(email, password);
 			navigation.navigate('Home');
 			setIsLoading(false);
-			setUsername('');
+			setEmail('');
 			setPassword('');
 		}, 6000);
 	};
@@ -60,12 +57,12 @@ const SigninScreen = ({ navigation }) => {
 	const handleExitSignin = () => navigation.navigate('Home');
 
 	useEffect(() => {
-		if (!password || !username) {
+		if (!password || !email) {
 			setNoValue(true);
 		} else {
 			setNoValue(false);
 		}
-	}, [username, password]);
+	}, [email, password]);
 
 	return (
 		<View style={styles.signinScreen}>
@@ -80,23 +77,27 @@ const SigninScreen = ({ navigation }) => {
 				<Text style={styles.formHdTitle}>Log in or sign up to Airbnb</Text>
 				<TextInput
 					style={styles.formInput}
-					placeholder='Username'
-					onChange={handleChange}
-					value={username}
-					textContentType='name'
-					name='username'
-					required
+					placeholder='Enter email'
+					onChangeText={(text) => setEmail(text)}
+					keyboardType='email-address'
+					value={email}
+					textContentType='emailAddress'
+					placeholderTextColor='gray'
+					autoComplete='email'
+					autoCorrect={false}
 				/>
 				<TextInput
 					style={styles.formInput}
-					placeholder='Phone number'
-					onChange={handlePasswordChange}
-					name='phonenumber'
+					placeholder='Enter password'
+					onChangeText={(text) => setPassword(text)}
+					secureTextEntry={true}
 					value={password}
-					textContentType='telephoneNumber'
+					textContentType='password'
 					maxLength={10}
 					minLength={10}
-					required
+					placeholderTextColor='gray'
+					autoComplete='password'
+					autoCorrect={false}
 				/>
 				<Text style={styles.smallText}>
 					We'll call or text you to confirm your number. Standard message and
@@ -163,7 +164,6 @@ const styles = StyleSheet.create({
 		backgroundColor: 'white',
 	},
 	closeBtnContainer: {
-		width: '100%',
 		paddingVertical: 20,
 		marginBottom: 10,
 	},
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 13,
 		borderWidth: 1,
 		borderColor: 'gray',
-		borderRadius: 3,
+		borderRadius: 7,
 		fontSize: 16,
 		color: 'black',
 	},

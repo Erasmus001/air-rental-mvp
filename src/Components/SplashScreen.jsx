@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
-const SplashScreen = ({ navigation }) => {
+const SplashScreen = () => {
+	const navigation = useNavigation();
+
 	useEffect(() => {
 		setTimeout(() => {
 			navigation.navigate('Signin');
-		}, 100);
+		}, 1500);
 	}, []);
 
 	return (
@@ -21,7 +24,7 @@ const styles = StyleSheet.create({
 	container: {
 		height: '100vh',
 		width: '100vw',
-		backgroundColor: 'dodgerblue',
+		backgroundColor: 'black',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
