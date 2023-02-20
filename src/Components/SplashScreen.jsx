@@ -14,12 +14,12 @@ const SplashScreen = () => {
 			} else {
 				navigation.replace('Home');
 			}
-		}, 1000);
+		}, 3000);
 	}, []);
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Airbnb</Text>
+			<Text style={styles.title}>Roomzy</Text>
 		</View>
 	);
 };

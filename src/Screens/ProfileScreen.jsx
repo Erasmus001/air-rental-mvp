@@ -1,5 +1,4 @@
 import {
-	Button,
 	ScrollView,
 	StyleSheet,
 	Text,
@@ -8,9 +7,13 @@ import {
 } from 'react-native';
 import React from 'react';
 import { Feather, FontAwesome5, Ionicons } from '@expo/vector-icons/';
-import { Link } from '@react-navigation/native';
+import { Link, useNavigation } from '@react-navigation/native';
 
 const ProfileScreen = () => {
+	const navigation = useNavigation();
+
+	const handleLogout = () => navigation.replace('Signin');
+
 	return (
 		<ScrollView
 			horizontal={false}
@@ -57,7 +60,7 @@ const ProfileScreen = () => {
 							style={styles.chevronRightIcon}
 						/>
 					</Link>
-					<Link to='/PersonalInfo' style={styles.listLink}>
+					<Link to='/LoginSecurity' style={styles.listLink}>
 						<View style={styles.list}>
 							<Feather name='shield' size={22} />
 							<Text style={styles.listText}>Login & Security</Text>
@@ -68,7 +71,7 @@ const ProfileScreen = () => {
 							style={styles.chevronRightIcon}
 						/>
 					</Link>
-					<Link to='/PersonalInfo' style={styles.listLink}>
+					<Link to='/Payment' style={styles.listLink}>
 						<View style={styles.list}>
 							<Ionicons name='cash' size={22} />
 							<Text style={styles.listText}>Payments and payouts</Text>
@@ -98,7 +101,7 @@ const ProfileScreen = () => {
 					<Text style={styles.accountSettingsHdText}>Support</Text>
 				</View>
 				<View style={styles.accountLists}>
-					<Link to='/PersonalInfo' style={styles.listLink}>
+					<Link to='/GetHelp' style={styles.listLink}>
 						<View style={styles.list}>
 							<Feather name='shield' size={22} />
 							<Text style={styles.listText}>Get help</Text>
@@ -109,7 +112,7 @@ const ProfileScreen = () => {
 							style={styles.chevronRightIcon}
 						/>
 					</Link>
-					<Link to='/PersonalInfo' style={styles.listLink}>
+					<Link to='/Feedback' style={styles.listLink}>
 						<View style={styles.list}>
 							<Ionicons name='cash' size={22} />
 							<Text style={styles.listText}>Give us feedback</Text>
@@ -128,7 +131,7 @@ const ProfileScreen = () => {
 					<Text style={styles.accountSettingsHdText}>Legal</Text>
 				</View>
 				<View style={styles.accountLists}>
-					<Link to='/PersonalInfo' style={styles.listLink}>
+					<Link to='/Terms' style={styles.listLink}>
 						<View style={styles.list}>
 							<FontAwesome5 name='user' size={22} />
 							<Text style={styles.listText}>Terms of Service</Text>
@@ -139,7 +142,7 @@ const ProfileScreen = () => {
 							style={styles.chevronRightIcon}
 						/>
 					</Link>
-					<Link to='/PersonalInfo' style={styles.listLink}>
+					<Link to='/PrivacyPolicy' style={styles.listLink}>
 						<View style={styles.list}>
 							<Feather name='shield' size={22} />
 							<Text style={styles.listText}>Privacy Policy</Text>
@@ -150,7 +153,7 @@ const ProfileScreen = () => {
 							style={styles.chevronRightIcon}
 						/>
 					</Link>
-					<TouchableOpacity style={styles.listLink}>
+					<TouchableOpacity style={styles.listLink} onPress={handleLogout}>
 						<View style={[styles.list, styles.logout]}>
 							<Feather
 								name='log-out'
@@ -281,6 +284,7 @@ const styles = StyleSheet.create({
 	listText: {
 		fontSize: 16,
 	},
+	// Logout Button
 	logout: {
 		width: '100%',
 		color: 'red',

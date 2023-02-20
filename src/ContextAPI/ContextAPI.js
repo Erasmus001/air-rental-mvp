@@ -7,7 +7,7 @@ const AppContext = createContext({
 export const useAppContext = () => useContext(AppContext);
 
 const AppContextProvider = ({ children }) => {
-	const [currentUser, setCurrentUser] = useState('Erasmus');
+	const [currentUser, setCurrentUser] = useState(null);
 
 	// Create user account
 	const createUserWithEmailAndPassword = (email, password) => {

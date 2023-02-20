@@ -14,7 +14,7 @@ const Stack = createStackNavigator();
 const AuthNavigator = () => {
 	return (
 		<Stack.Navigator
-			initialRouteName='Home'
+			initialRouteName='SplashScreen'
 			screenOptions={{
 				headerShown: false,
 			}}>
