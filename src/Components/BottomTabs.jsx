@@ -1,33 +1,35 @@
+import { FontAwesome, FontAwesome5, Fontisto } from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-import TabBar from './TabBar';
-import Homescreen from '../Screens/Homescreen';
-import SigninScreen from '../Screens/SigninScreen';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
-const Tab = createBottomTabNavigator();
+import { StyleSheet, View } from 'react-native';
 
 const BottomTabs = () => {
 	return (
-		<SafeAreaView style={{ flex: 1, backgroundColor: 'red' }}>
-			<Tab.Navigator
-				initialRouteName='Home'
-				header={null}
-				headerMode='none'
-				tabBar={(props) => <TabBar {...props} />}
-				screenOptions={{
-					keyboardHidesTabBar: true,
-				}}
-				backBehavior={'none'}>
-				<Tab.Screen name='Home' component={Homescreen} />
-				<Tab.Screen name='Signin' component={SigninScreen} />
-			</Tab.Navigator>
-		</SafeAreaView>
+		<View style={styles.bottomTabs}>
+			<FontAwesome5 name='search' size={24} />
+			<FontAwesome5 name='heart' size={24} />
+			<FontAwesome name='envelope-square' size={24} />
+			<FontAwesome5 name='user' size={24} />
+		</View>
 	);
 };
 
 export default BottomTabs;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	bottomTabs: {
+		width: '100vw',
+		backgroundColor: 'white',
+		height: 65,
+		display: 'flex',
+		alignItems: 'center',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		paddingVertical: 15,
+		paddingHorizontal: 30,
+		position: 'sticky',
+		// bottom: 0,
+		// left: 0,
+		// right: 0,
+		zIndex: 1,
+	},
+});

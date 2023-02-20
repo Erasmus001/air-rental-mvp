@@ -1,10 +1,23 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React from 'react';
+import Categories from '../Components/Categories';
+import Searchbar from '../Components/Searchbar';
+import Listings from '../Components/Listings';
+import BottomTabs from '../Components/BottomTabs';
 
 const Homescreen = () => {
 	return (
 		<View style={styles.homescreen}>
-			<Text style={styles.title}>Home Screen</Text>
+			{/* Search Bar */}
+			<View style={styles.header}>
+				<Searchbar />
+				{/* Categories lists */}
+				<Categories />
+			</View>
+			{/* Main Content Listings */}
+			<Listings />
+			{/* Bottom Tabs*/}
+			<BottomTabs />
 		</View>
 	);
 };
@@ -15,10 +28,18 @@ const styles = StyleSheet.create({
 	homescreen: {
 		flex: 1,
 		height: '100vh',
-		backgroundColor: '#eee',
+		backgroundColor: '##eeeeeea8',
 		textAlign: 'center',
 	},
 	title: {
 		fontSize: 30,
+	},
+	header: {
+		position: 'sticky',
+		top: 0,
+		left: 0,
+		zIndex: 9,
+		backgroundColor: 'whitesmoke',
+		width: '100vw',
 	},
 });
