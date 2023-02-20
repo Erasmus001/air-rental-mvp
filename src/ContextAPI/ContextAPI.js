@@ -1,27 +1,22 @@
 import React, { useState, createContext, useContext } from 'react';
 
 const AppContext = createContext({
-	user: 'Erasmus',
-	createUserWithEmailAndPassword: () => Promise,
+	user: null,
 });
 
 export const useAppContext = () => useContext(AppContext);
 
 const AppContextProvider = ({ children }) => {
-	const [user, setUser] = useState('');
-
-	const userDB = [];
+	const [currentUser, setCurrentUser] = useState('Erasmus');
 
 	// Create user account
 	const createUserWithEmailAndPassword = (email, password) => {
-		const newUserDB = [...userDB];
-
-		newUserDB.push(...newUserDB, { email, password });
-		console.log(newUserDB);
+		setCurrentUser(email);
+		console.log(email, password);
 	};
 
 	const globalValues = {
-		user,
+		currentUser,
 		createUserWithEmailAndPassword,
 	};
 	return (

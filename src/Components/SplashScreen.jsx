@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
-// import { ReplaceRoute } from '../contants/constants';
+import { useAppContext } from '../ContextAPI/ContextAPI';
 
 const SplashScreen = () => {
+	const navigation = useNavigation();
+	const { currentUser } = useAppContext();
+
+	useEffect(() => {
+		setTimeout(() => {
+			if (!currentUser) {
+				navigation.replace('Signin');
+			} else {
+				navigation.replace('Home');
+			}
+		}, 1000);
+	}, []);
+
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>Airbnb</Text>

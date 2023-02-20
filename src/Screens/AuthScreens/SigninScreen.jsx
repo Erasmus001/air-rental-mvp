@@ -6,7 +6,7 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
-import { navigate } from '../../contants/constants';
+import { useNavigation } from '@react-navigation/native';
 
 const SigninScreen = () => {
 	const [email, setEmail] = useState('');
@@ -15,6 +15,8 @@ const SigninScreen = () => {
 	const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 	const [isPhoneLoading, setIsPhoneLoading] = useState(false);
 	const [noValue, setNoValue] = useState(true);
+
+	const navigation = useNavigation();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -26,7 +28,7 @@ const SigninScreen = () => {
 
 		setIsLoading(true);
 		setTimeout(() => {
-			navigate('Home');
+			navigation.navigate('Home');
 			setIsLoading(false);
 			setEmail('');
 			setPassword('');
@@ -51,7 +53,7 @@ const SigninScreen = () => {
 		}, 4000);
 	};
 
-	const handleExitSignin = () => navigate('Home');
+	const handleExitSignin = () => navigation.navigate('Home');
 
 	useEffect(() => {
 		if (!password || !email) {

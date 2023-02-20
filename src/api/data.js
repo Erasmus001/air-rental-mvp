@@ -19,16 +19,6 @@ export const categories = [
 		category_title: 'Hostels',
 		type: 'hostels',
 	},
-	{
-		id: 5,
-		category_title: 'Guest House',
-		type: 'guest_house',
-	},
-	{
-		id: 6,
-		category_title: 'Villas',
-		type: 'guest_house',
-	},
 ];
 
 export const housesApi = () => {
@@ -48,3 +38,16 @@ export const housesApi = () => {
 
 	return houses;
 };
+
+export const notifications = [
+	{
+		id: 1,
+		title: 'Update',
+		desc: 'A new update ready',
+	},
+	{
+		id: 2,
+		title: 'Booking',
+		desc: 'A new booking scheduled for today',
+	},
+];
