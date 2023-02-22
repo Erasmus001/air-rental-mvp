@@ -1,6 +1,7 @@
-import { StyleSheet } from 'react-native';
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+
+// Components
 import ProfileScreen from '../Screens/ProfileScreen';
 import UserProfileScreen from '../Screens/UserScreens/UserProfileScreen';
 import PersonalInfoScreen from '../Screens/UserScreens/PersonalInfoScreen';
@@ -18,7 +19,7 @@ const Stack = createStackNavigator();
 const SettingsNavigator = () => {
 	return (
 		<Stack.Navigator
-			initialRouteName='UserProfile'
+			initialRouteName='User'
 			screenOptions={{
 				headerShown: false,
 			}}>
@@ -36,5 +37,3 @@ const SettingsNavigator = () => {
 };
 
 export default SettingsNavigator;
-
-const styles = StyleSheet.create({});

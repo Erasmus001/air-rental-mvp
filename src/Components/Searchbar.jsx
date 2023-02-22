@@ -36,12 +36,12 @@ const styles = StyleSheet.create({
 	searchBarWrapper: {
 		width: '100vw',
 		padding: 20,
-		// backgroundColor: 'white',
+		backgroundColor: 'white',
 	},
 	searchbar: {
 		width: '100%',
 		height: 60,
-		backgroundColor: 'white',
+		backgroundColor: 'whitesmoke',
 		borderRadius: 50,
 		shadowOffset: '2px',
 		display: 'flex',
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 		height: '100%',
 		borderColor: 'transparent',
 		flex: 1,
-		fontSize: 15,
+		fontSize: 16,
 	},
 	searchBtn: {
 		padding: 10,
