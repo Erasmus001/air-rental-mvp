@@ -1,32 +1,22 @@
-import {
-	KeyboardAvoidingView,
-	StyleSheet,
-	TextInput,
-	TouchableOpacity,
-	View,
-} from 'react-native';
-import React, { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const Searchbar = () => {
-	const [searchQuery, setSearchQuery] = useState('');
+	const navigation = useNavigation();
+
+	const handleSearchNavigate = () => {
+		navigation.navigate('Search');
+	};
 
 	return (
-		<KeyboardAvoidingView style={styles.searchBarWrapper}>
-			<View style={styles.searchbar}>
-				<TextInput
-					placeholder='Search Rooms, Apartments etc..'
-					keyboardType='web-search'
-					onChangeText={(text) => setSearchQuery(text)}
-					value={searchQuery}
-					style={styles.searchInput}
-					placeholderTextColor='gray'
-				/>
-				<TouchableOpacity style={styles.searchBtn}>
-					<FontAwesome5 name='search' size={19} style={styles.searchIcon} />
-				</TouchableOpacity>
-			</View>
-		</KeyboardAvoidingView>
+		<View style={styles.searchBarWrapper}>
+			<TouchableOpacity style={styles.searchBtn} onPress={handleSearchNavigate}>
+				<FontAwesome5 name='search' size={19} style={styles.searchIcon} />
+				<Text>Search...</Text>
+			</TouchableOpacity>
+		</View>
 	);
 };
 
@@ -38,38 +28,23 @@ const styles = StyleSheet.create({
 		padding: 20,
 		backgroundColor: 'white',
 	},
-	searchbar: {
+	searchBtn: {
+		flex: 1,
+		paddingVertical: 15,
+		paddingHorizontal: 20,
+		borderRadius: '50%',
 		width: '100%',
-		height: 60,
+		// height: 60,
 		backgroundColor: 'whitesmoke',
 		borderRadius: 50,
-		shadowOffset: '2px',
 		display: 'flex',
 		alignItems: 'center',
+		justifyContent: 'flex-start',
 		flexDirection: 'row',
-		justifyContent: 'space-between',
-		shadowOpacity: 5,
-		shadowColor: 'black',
-		shadowRadius: 50,
-		paddingHorizontal: 10,
-		gap: 15,
-	},
-	searchInput: {
-		paddingVertical: 5,
-		paddingHorizontal: 10,
-		width: '100%',
-		height: '100%',
-		borderColor: 'transparent',
-		flex: 1,
-		fontSize: 16,
-	},
-	searchBtn: {
-		padding: 10,
-		backgroundColor: 'black',
-		borderRadius: '50%',
+		gap: 10,
 	},
 	searchIcon: {
-		color: 'white',
+		color: 'gray',
 		fontWeight: 500,
 	},
 });
