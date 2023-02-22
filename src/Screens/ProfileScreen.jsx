@@ -24,7 +24,7 @@ const ProfileScreen = () => {
 			</View>
 			{/* Profile */}
 			<View style={styles.profileLink}>
-				<Link to='/UserProfile' style={styles.profileEditLink}>
+				<Link to={{ screen: 'UserProfile' }} style={styles.profileEditLink}>
 					<View style={styles.profileEditLinkUser}>
 						<View style={styles.avatar}>
 							<FontAwesome5 name='user' size={28} style={styles.userIcon} />
@@ -49,7 +49,7 @@ const ProfileScreen = () => {
 					<Text style={styles.accountSettingsHdText}>Account Settings</Text>
 				</View>
 				<View style={styles.accountLists}>
-					<Link to='/PersonalInfo' style={styles.listLink}>
+					<Link to={{ screen: 'PersonalInfo' }} style={styles.listLink}>
 						<View style={styles.list}>
 							<FontAwesome5 name='user' size={22} />
 							<Text style={styles.listText}>Personal information</Text>
@@ -60,7 +60,7 @@ const ProfileScreen = () => {
 							style={styles.chevronRightIcon}
 						/>
 					</Link>
-					<Link to='/LoginSecurity' style={styles.listLink}>
+					<Link to={{ screen: 'LoginSecurity' }} style={styles.listLink}>
 						<View style={styles.list}>
 							<Feather name='shield' size={22} />
 							<Text style={styles.listText}>Login & Security</Text>
@@ -71,7 +71,7 @@ const ProfileScreen = () => {
 							style={styles.chevronRightIcon}
 						/>
 					</Link>
-					<Link to='/Payment' style={styles.listLink}>
+					<Link to={{ screen: 'Payment' }} style={styles.listLink}>
 						<View style={styles.list}>
 							<Ionicons name='cash' size={22} />
 							<Text style={styles.listText}>Payments and payouts</Text>
@@ -82,7 +82,7 @@ const ProfileScreen = () => {
 							style={styles.chevronRightIcon}
 						/>
 					</Link>
-					<Link to='/Inbox' style={styles.listLink}>
+					<Link to={{ screen: 'Inbox' }} style={styles.listLink}>
 						<View style={styles.list}>
 							<FontAwesome5 name='bell' size={22} />
 							<Text style={styles.listText}>Notifications</Text>
@@ -101,7 +101,7 @@ const ProfileScreen = () => {
 					<Text style={styles.accountSettingsHdText}>Support</Text>
 				</View>
 				<View style={styles.accountLists}>
-					<Link to='/GetHelp' style={styles.listLink}>
+					<Link to={{ screen: 'GetHelp' }} style={styles.listLink}>
 						<View style={styles.list}>
 							<Feather name='shield' size={22} />
 							<Text style={styles.listText}>Get help</Text>
@@ -112,7 +112,7 @@ const ProfileScreen = () => {
 							style={styles.chevronRightIcon}
 						/>
 					</Link>
-					<Link to='/Feedback' style={styles.listLink}>
+					<Link to={{ screen: 'Feedback' }} style={styles.listLink}>
 						<View style={styles.list}>
 							<Ionicons name='cash' size={22} />
 							<Text style={styles.listText}>Give us feedback</Text>
@@ -131,7 +131,7 @@ const ProfileScreen = () => {
 					<Text style={styles.accountSettingsHdText}>Legal</Text>
 				</View>
 				<View style={styles.accountLists}>
-					<Link to='/Terms' style={styles.listLink}>
+					<Link to={{ screen: 'Terms' }} style={styles.listLink}>
 						<View style={styles.list}>
 							<FontAwesome5 name='user' size={22} />
 							<Text style={styles.listText}>Terms of Service</Text>
@@ -142,7 +142,7 @@ const ProfileScreen = () => {
 							style={styles.chevronRightIcon}
 						/>
 					</Link>
-					<Link to='/PrivacyPolicy' style={styles.listLink}>
+					<Link to={{ screen: 'PrivacyPolicy' }} style={styles.listLink}>
 						<View style={styles.list}>
 							<Feather name='shield' size={22} />
 							<Text style={styles.listText}>Privacy Policy</Text>

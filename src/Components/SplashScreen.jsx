@@ -14,7 +14,7 @@ const SplashScreen = () => {
 			} else {
 				navigation.replace('Home');
 			}
-		}, 3000);
+		}, 0);
 	}, []);
 
 	return (

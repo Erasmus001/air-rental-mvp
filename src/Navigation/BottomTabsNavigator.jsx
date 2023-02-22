@@ -26,6 +26,7 @@ const BottomTabsNavigator = () => {
 				component={HomeScreen}
 				options={{
 					headerShown: false,
+					tabBarHideOnKeyboard: true,
 					tabBarIcon: ({ color }) => (
 						<FontAwesome5 name='search' size={20} color={color} />
 					),

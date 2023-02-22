@@ -18,7 +18,7 @@ const Stack = createStackNavigator();
 const SettingsNavigator = () => {
 	return (
 		<Stack.Navigator
-			initialRouteName='User'
+			initialRouteName='UserProfile'
 			screenOptions={{
 				headerShown: false,
 			}}>
