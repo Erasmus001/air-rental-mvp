@@ -4,6 +4,7 @@ export { default as SettingsScreen } from './SettingsScreen';
 export { default as TripsScreen } from './TripsScreen';
 export { default as WishListsScreen } from './WishListsScreen';
 export { default as InboxScreen } from './InboxScreen';
+export { default as SearchScreen } from './SearchScreen';
 
 // Auth Screens
 export { default as SigninScreen } from './AuthScreens/SigninScreen';

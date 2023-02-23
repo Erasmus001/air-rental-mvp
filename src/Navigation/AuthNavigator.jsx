@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import {
 	ResetEmailScreen,
+	SearchScreen,
 	SigninScreen,
 	SignupScreen,
 } from '../Screens/screens';
@@ -23,6 +24,7 @@ const AuthNavigator = () => {
 			<Stack.Screen name='Signin' component={SigninScreen} />
 			<Stack.Screen name='ResetEmail' component={ResetEmailScreen} />
 			<Stack.Screen name='Home' component={BottomTabsNavigator} />
+			<Stack.Screen name='Search' component={SearchScreen} />
 		</Stack.Navigator>
 	);
 };

@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
 	HomeScreen,
 	InboxScreen,
+	SearchScreen,
 	// ProfileScreen,
 	WishListsScreen,
 } from '../Screens/screens';
@@ -64,6 +65,16 @@ const BottomTabsNavigator = () => {
 					),
 				}}
 			/>
+			{/* <Tab.Screen
+				name='Search'
+				component={SearchScreen}
+				options={{
+					headerShown: false,
+					tabBarIcon: ({ color }) => (
+						<FontAwesome5 name='search' size={20} color={color} />
+					),
+				}}
+			/> */}
 		</Tab.Navigator>
 	);
 };

@@ -16,9 +16,9 @@ const Listings = () => {
 				style={styles.listing}
 				showsVerticalScrollIndicator={false}
 				data={houses}
-				renderItem={(houses) => (
-					<Card houses={houses} key={houses} />
-				)}></FlatList>
+				keyExtractor={(houses) => houses.id}
+				renderItem={(houses) => <Card houses={houses} key={houses} />}
+			/>
 		</View>
 	);
 };
@@ -27,9 +27,8 @@ export default Listings;
 
 const styles = StyleSheet.create({
 	listings: {
-		height: '100%',
+		height: '80%',
 		width: '100%',
-		// backgroundColor: 'gray',
 		display: 'flex',
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
@@ -41,6 +40,5 @@ const styles = StyleSheet.create({
 		height: '100%',
 		width: '100%',
 		gap: 20,
-		// overflow: 'scroll',
 	},
 });
