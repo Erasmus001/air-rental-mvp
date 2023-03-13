@@ -1,3 +1,11 @@
+import Img1 from './assets/img/City_6.jpg';
+import Img2 from './assets/img/City_33.jpg';
+import Img3 from './assets/img/City_44.jpg';
+import Img4 from './assets/img/City_99.jpg';
+import Img5 from './assets/img/City_138.jpg';
+
+export const imgLoop = [Img1, Img2, Img3, Img4, Img5];
+
 const apiData = [
 	{
 		id: Math.random(),
@@ -6,8 +14,8 @@ const apiData = [
 		location: 'Adenta, Accra',
 		price: 4000,
 		typeOfListing: 'Apartment',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img1,
 		host: {
 			name: 'Host 1',
 			location: 'Adenta',
@@ -33,8 +41,8 @@ const apiData = [
 		location: 'Kasoa, Accra',
 		price: 1000,
 		typeOfListing: 'House',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img2,
 		host: {
 			name: 'Host 2',
 			location: 'Madina',
@@ -60,8 +68,8 @@ const apiData = [
 		location: 'Cape Coast, Central',
 		price: 1000,
 		typeOfListing: 'House',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img3,
 		host: {
 			name: 'Host 2',
 			location: 'Madina',
@@ -87,8 +95,8 @@ const apiData = [
 		location: 'Madina, Accra',
 		price: 1000,
 		typeOfListing: 'House',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img2,
 		host: {
 			name: 'Host 2',
 			location: 'Madina',
@@ -114,8 +122,8 @@ const apiData = [
 		location: 'Madina, Accra',
 		price: 1000,
 		typeOfListing: 'House',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img4,
 		host: {
 			name: 'Host 2',
 			location: 'Madina',
@@ -141,8 +149,8 @@ const apiData = [
 		location: 'Madina, Accra',
 		price: 1000,
 		typeOfListing: 'House',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img1,
 		host: {
 			name: 'Host 2',
 			location: 'Madina',
@@ -168,8 +176,8 @@ const apiData = [
 		location: 'Madina, Accra',
 		price: 1000,
 		typeOfListing: 'House',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img5,
 		host: {
 			name: 'Host 2',
 			location: 'Madina',
@@ -195,8 +203,8 @@ const apiData = [
 		location: 'Madina, Accra',
 		price: 1000,
 		typeOfListing: 'House',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img3,
 		host: {
 			name: 'Host 2',
 			location: 'Madina',
@@ -222,8 +230,8 @@ const apiData = [
 		location: 'Madina, Accra',
 		price: 1000,
 		typeOfListing: 'House',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img2,
 		host: {
 			name: 'Host 2',
 			location: 'Madina',
@@ -249,8 +257,8 @@ const apiData = [
 		location: 'Madina, Accra',
 		price: 1000,
 		typeOfListing: 'Office',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img5,
 		host: {
 			name: 'Host 2',
 			location: 'Madina',
@@ -276,8 +284,8 @@ const apiData = [
 		location: 'Madina, Accra',
 		price: 1000,
 		typeOfListing: 'Apartment',
-		amenities: [],
-		imgUrl: '',
+		amenities: ['Pool', 'Parking space', 'Wifi', 'BBQ'],
+		imgUrl: Img4,
 		host: {
 			name: 'Host 2',
 			location: 'Madina',

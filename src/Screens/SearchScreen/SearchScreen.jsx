@@ -31,9 +31,9 @@ const SearchScreen = () => {
 	const renderListing = ({ item }) => (
 		<TouchableOpacity
 			style={styles.searchList}
-			onPress={() => navigation.navigate('Filter', { item, apiData })}>
+			onPress={() => navigation.navigate('ListingDetails', { item })}>
 			<View style={styles.mapIcon}>
-				<FontAwesome5 name='map-marker' size={22} />
+				<FontAwesome5 name='map-marker' size={22} color={'#242424e5'} />
 			</View>
 			<Text style={styles.title}>{item.location}</Text>
 		</TouchableOpacity>
@@ -70,7 +70,7 @@ const SearchScreen = () => {
 									alignItems: 'center',
 									justifyContent: 'center',
 								}}>
-								<Text>Powered by Google</Text>
+								<Text style={{ fontWeight: '600' }}>Powered by Roomzy</Text>
 							</View>
 						)}
 					/>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
-		gap: 10,
+		gap: 20,
 		borderWidth: 1,
 		borderColor: 'lightgray',
 		borderRadius: 50,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
 		height: 50,
 	},
 	searchInput: {
-		width: '100%',
+		width: '88%',
 		fontSize: 16,
 		height: '100%',
 		paddingHorizontal: 15,
@@ -131,21 +131,23 @@ const styles = StyleSheet.create({
 		gap: 20,
 		paddingVertical: 10,
 		paddingHorizontal: 15,
+		borderRadius: 8,
 	},
 	mapIcon: {
-		fontSize: 22,
+		fontSize: 20,
 		padding: 10,
 		paddingHorizontal: 15,
-		backgroundColor: '#f1ebebf8',
+		backgroundColor: '#e0dcdc85',
 		borderRadius: 5,
+		marginRight: 10,
 	},
 	title: {
-		fontSize: 16,
+		fontSize: 18,
 	},
 	filterBtn: {
 		borderRadius: 50,
 		backgroundColor: 'black',
-		padding: 10,
+		padding: 12,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},

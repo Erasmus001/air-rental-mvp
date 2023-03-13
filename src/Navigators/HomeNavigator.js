@@ -6,13 +6,18 @@ import {
 	ListingDetailsScreen,
 	SearchScreen,
 } from '../Screens/screens';
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 const Stack = createStackNavigator();
 
 function HomeNavigator() {
 	return (
-		<Stack.Navigator initialRouteName='Home'>
+		<Stack.Navigator
+			initialRouteName='Home'
+			screenOptions={{
+				gestureDirection: 'horizontal',
+				animationEnabled: true,
+			}}>
 			<Stack.Screen
 				name='Home'
 				component={HomeScreen}
@@ -24,19 +29,11 @@ function HomeNavigator() {
 				name='Search'
 				component={SearchScreen}
 				options={{
-					animationEnabled: true,
+					// animationEnabled: true,
 					headerShadowVisible: false,
-					gestureEnabled: true,
 				}}
 			/>
-			<Stack.Screen
-				name='Filter'
-				component={FilterScreen}
-				options={{
-					// headerShown: false,
-					presentation: 'modal',
-				}}
-			/>
+			<Stack.Screen name='Filter' component={FilterScreen} />
 			<Stack.Screen
 				name='ListingDetails'
 				component={ListingDetailsScreen}
@@ -48,22 +45,4 @@ function HomeNavigator() {
 	);
 }
 
-const getTabBarVisibility = (route) => {
-	const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
-	console.log(route, routeName);
-};
-
 export default HomeNavigator;
-
-// const getHeaderTitle = (route) => {
-// 	switch (routeName) {
-// 		case 'Home':
-// 			return 'HomeScreen';
-// 		case 'Trips':
-// 			return 'TripsScreen';
-// 		case 'Wishlist':
-// 			return 'WishListScreen';
-// 		case 'Profile':
-// 			return 'ProfileScreen';
-// 	}
-// };

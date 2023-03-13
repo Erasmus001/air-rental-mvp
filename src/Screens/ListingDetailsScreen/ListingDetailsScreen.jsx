@@ -3,15 +3,20 @@ import {
 	StyleSheet,
 	Text,
 	View,
-	TouchableOpacity,
 	ScrollView,
+	StatusBar,
+	Image,
+	Pressable,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import AmenityCard from '../../Components/UI/AmenityCard';
+import { useBookMarkContext } from '../../Context/BookMarkContext';
+// import ImageBlurLoading from 'react-native-image-blur-loading';
 
 const ListingDetailsScreen = ({ route }) => {
 	const navigation = useNavigation();
+	const { bookmarks, addToBookmark } = useBookMarkContext();
 
 	const { item } = route?.params;
 
@@ -32,15 +37,26 @@ const ListingDetailsScreen = ({ route }) => {
 	} = item;
 
 	return (
-		<ScrollView style={styles.listingDetailScreen}>
-			{/* Will be replace by original image */}
+		<ScrollView
+			style={styles.listingDetailScreen}
+			showsVerticalScrollIndicator={false}
+			bounces={true}
+			alwaysBounceVertical={true}>
+			<StatusBar
+				translucent
+				barStyle={'default'}
+				animated={true}
+				backgroundColor={'transparent'}
+				networkActivityIndicatorVisible={true}
+				showHideTransition={'fade'}
+			/>
 			<View style={styles.listingImgContainer}>
-				<View style={styles.listingImg} />
+				<Image source={imgUrl} style={styles.listingImg} />
 			</View>
 
 			{/* Detail Screen Header */}
 			<View style={styles.listingHeader}>
-				<TouchableOpacity
+				<Pressable
 					onPress={() => {
 						navigation.goBack();
 					}}
@@ -48,16 +64,23 @@ const ListingDetailsScreen = ({ route }) => {
 					<Feather
 						name='arrow-left'
 						size={20}
-						style={{ color: 'white', fontSize: 22 }}
+						style={{ color: 'black', fontSize: 22 }}
 					/>
-				</TouchableOpacity>
-				<TouchableOpacity onPress={() => {}} style={styles.headerBtn}>
+				</Pressable>
+				<Pressable
+					onPress={() => {
+						addToBookmark(item);
+						console.log(
+							`You added ${item.id} to bookmarks, ${JSON.stringify(bookmarks)}`
+						);
+					}}
+					style={styles.headerBtn}>
 					<Feather
 						name='heart'
 						size={20}
-						style={{ color: 'white', fontSize: 22 }}
+						style={{ color: 'black', fontSize: 22 }}
 					/>
-				</TouchableOpacity>
+				</Pressable>
 			</View>
 
 			{/* Listing Details */}
@@ -78,14 +101,18 @@ const ListingDetailsScreen = ({ route }) => {
 				<View style={styles.listingDetails}>
 					<Text style={styles.listingDetailsTitle}>Property Details</Text>
 					<View style={styles.amenities}>
-						<AmenityCard amenity={'House'} icon={''} />
-						<AmenityCard amenity={'Garden'} icon={''} />
-						<AmenityCard amenity={'Pool'} icon={''} />
+						{item?.amenities?.map((amenity) => (
+							<View style={styles.amenitiesList}>
+								<AmenityCard amenity={amenity} icon={''} key={amenity} />
+							</View>
+						))}
 					</View>
 				</View>
 
 				<View style={styles.mapContainer}>
-					<Text>Location</Text>
+					<View style={styles.mapTitle}>
+						<Text style={styles.mapTitleTxt}>Location</Text>
+					</View>
 					<View style={styles.map} />
 				</View>
 			</View>
@@ -103,8 +130,7 @@ const styles = StyleSheet.create({
 	},
 	listingImgContainer: {
 		width: '100%',
-		height: 300,
-		backgroundColor: 'lightgray',
+		height: 380,
 		position: 'relative',
 	},
 	listingImg: {
@@ -115,10 +141,9 @@ const styles = StyleSheet.create({
 	listingHeader: {
 		position: 'absolute',
 		flexDirection: 'row',
-		top: 30,
+		top: 50,
 		left: 0,
 		width: '100%',
-		// backgroundColor: 'red',
 		height: 60,
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -127,11 +152,12 @@ const styles = StyleSheet.create({
 	},
 	headerBtn: {
 		padding: 12,
-		backgroundColor: '#383838a2',
+		// backgroundColor: '#383838a2',
+		backgroundColor: '#fff',
 		borderRadius: 50,
 		alignItems: 'center',
 		justifyContent: 'center',
-		opacity: 0.7,
+		// opacity: 0.8,
 	},
 	details: {
 		width: '100%',
@@ -141,44 +167,56 @@ const styles = StyleSheet.create({
 	},
 	detailsHd: {
 		width: '100%',
-		gap: 10,
-		marginBottom: 40,
+		gap: 15,
+		marginBottom: 50,
 	},
 	title: {
-		fontSize: 22,
-		fontWeight: 600,
+		fontSize: 26,
+		fontWeight: '600',
+		marginBottom: 7,
 	},
 	location: {
-		fontSize: 18,
-		fontWeight: 500,
+		fontSize: 20,
+		fontWeight: '500',
 		color: 'gray',
+		marginBottom: 7,
 	},
 	desc: {
-		fontSize: 16,
-		lineHeight: 21,
+		fontSize: 17.5,
+		lineHeight: 26,
 	},
 	listingDetails: {
 		width: '100%',
 	},
 	listingDetailsTitle: {
-		fontSize: 17,
-		fontWeight: 600,
+		fontSize: 22,
+		fontWeight: '600',
 		marginBottom: 15,
 	},
 	amenities: {
 		width: '100%',
-		gap: 8,
+		gap: 12,
 		flexWrap: 'wrap',
 		marginBottom: 30,
+	},
+	amenitiesList: {
+		width: '100%',
+		flexDirection: 'row',
+		rowGap: 10,
 	},
 	mapContainer: {
 		width: '100%',
 		height: 280,
-		borderRadius: 15,
-		overflow: 'hidden',
+		// overflow: 'hidden',
 		gap: 10,
 	},
+	mapTitleTxt: {
+		marginBottom: 15,
+		fontSize: 22,
+		fontWeight: '600',
+	},
 	map: {
+		borderRadius: 15,
 		height: '100%',
 		width: '100%',
 		resizeMode: 'cover',
